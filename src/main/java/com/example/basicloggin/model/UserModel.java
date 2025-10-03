@@ -30,6 +30,9 @@ public class UserModel {
     @Column(name = "edad")
     private Integer age;
 
+    @Column(name = "genero")
+    private String gender;
+
     @Enumerated(EnumType.STRING)
     private UserRol userRol;
 }

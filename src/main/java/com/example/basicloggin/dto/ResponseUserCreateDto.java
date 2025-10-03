@@ -23,6 +23,9 @@ public class ResponseUserCreateDto {
     private Integer age;
 
     @NotBlank(message = "Necesita genero")
+    private String gender;
+
+    @NotBlank(message = "Necesita genero")
     private UserRol role;
 
 }

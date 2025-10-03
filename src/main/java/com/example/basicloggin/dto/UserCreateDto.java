@@ -28,6 +28,9 @@ public class UserCreateDto {
     @JsonProperty("edad")
     private Integer edad;
 
+    @JsonProperty("genero")
+    private String gender;
+
     @JsonProperty("rol")
     private UserRol userRol;
 }

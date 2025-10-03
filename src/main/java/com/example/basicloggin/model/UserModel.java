@@ -11,21 +11,24 @@ import lombok.*;
 @Setter
 @ToString
 
-@Entity(name = "user")
+@Entity(name = "usuarios")
 public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "email",nullable = false)
     private String email;
 
-    @Column(nullable = false, length = 30)
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "nombre")
     private String name;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "edad")
+    private Integer age;
 
     @Enumerated(EnumType.STRING)
     private UserRol userRol;

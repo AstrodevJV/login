@@ -1,9 +1,7 @@
 package com.example.basicloggin.controller;
 
 
-import com.example.basicloggin.dto.ResponseUserCreateDto;
-import com.example.basicloggin.dto.UserCreateDto;
-import com.example.basicloggin.dto.UserCreateGoogleDto;
+import com.example.basicloggin.dto.*;
 import com.example.basicloggin.model.UserModel;
 import com.example.basicloggin.service.UserService;
 import jakarta.validation.Valid;
@@ -27,6 +25,14 @@ public class AuthController {
     public ResponseEntity<ResponseUserCreateDto> singUp(@Valid @RequestBody UserCreateDto createUserAccountDto) {
         val user = userService.addUser(createUserAccountDto);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+    @PostMapping("/sign-in")
+    public ResponseEntity<ResponseUsererLogin> signIn(@Valid @RequestBody LoginDto loginDto) {
+        ResponseUsererLogin responseUsererLogin = userService.ingresarUser(loginDto.getEmail(), loginDto.getPassword());
+        if (responseUsererLogin == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        return new ResponseEntity<>(responseUsererLogin, HttpStatus.OK);
     }
 
     @PostMapping("/google")

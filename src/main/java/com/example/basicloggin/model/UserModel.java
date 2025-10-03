@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @ToString
 
-@Entity(name = "usuarios")
+@Entity(name = "usuario")
 public class UserModel {
 
     @Id
